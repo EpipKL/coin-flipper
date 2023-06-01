@@ -13,7 +13,13 @@ let losses = 0;
 let stinker = false; // Flag for the first loss encountered
 
 function flip() {
-   return Math.floor(Math.random() * 2);
+   const flipping = Math.random();
+
+   if (flipping < 0.5) {
+    return 'Heads';
+   } else {
+    return 'Tails';
+   }
 }
 
 sBtn.addEventListener('click', () => {
@@ -46,35 +52,51 @@ function cFlip() {
     if (kActive) {
       for (var i = 0; i < fInput; i++) {
         let kFlip1 = flip();
-        console.log('flip 1:', kFlip1 === win);
+
+        if (kFlip1 === 'Heads') {
+            console.log('flip 1: heads');
+        } else {
+            console.log('flip 1: tails')
+        }
+
         let kFlip2 = flip();
-        console.log('flip 2:', kFlip2 === win);
+
+        if (kFlip2 === 'Heads') {
+            console.log('flip 2: heads');
+        } else {
+            console.log('flip 2: tails')
+        }
 
   
-        if (kFlip1 === loss && kFlip2 === loss) {
+        if (kFlip1 === 'Tails' && kFlip2 === 'Tails') {
             losses++;
             break; // End iteration when two 'tails' occur
         } else {
             losses = 0; // Reset consecutive losses
         }
   
-        if (kFlip1 === win || kFlip2 === win) {
+        if (kFlip1 === 'Heads' || kFlip2 === 'Heads') {
           wins++;
         }
       }
     } else {
       for (var i = 0; i < fInput; i++) {
         let rFlip = flip();
-        console.log('flip:', rFlip === win);
+        
+        if (rFlip === 'Heads') {
+            console.log('flip: heads');
+        } else {
+            console.log('flip: tails');
+        }
   
-        if (rFlip === loss) {
+        if (rFlip === 'Tails') {
             losses++;
           break; // End iteration on the first loss
         } else {
             losses = 0; // Reset consecutive losses
         }
   
-        if (rFlip === win) {
+        if (rFlip === 'Heads') {
           wins++;
         }
       }
