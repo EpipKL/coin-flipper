@@ -66,13 +66,6 @@ function cFlip() {
       if (kFlip1 === "Tails" && kFlip2 === "Tails") {
         losses++;
         console.log("loss");
-        /*
-        break; // End iteration when two 'tails' occur
-        */
-      } else {
-        /*
-        losses = 0; // Reset consecutive losses
-        */
       }
 
       if (kFlip1 === "Heads" || kFlip2 === "Heads") {
@@ -92,15 +85,7 @@ function cFlip() {
 
       if (rFlip === "Tails") {
         losses++;
-        /*
-        break; // End iteration on the first loss
-        */
-      } else {
-        /*
-        losses = 0; // Reset consecutive losses
-        */
       }
-
       if (rFlip === "Heads") {
         wins++;
       }
@@ -115,7 +100,6 @@ function wPercent() {
     fNum = wins + losses;
   }
 
-  // const fNum = wins + losses;
   const winRate = (wins / fNum) * 100;
   pElement.innerText = winRate.toFixed(2) + "%";
   console.log("wins:", wins);
