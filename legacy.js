@@ -24,7 +24,6 @@ function flip() {
 
 sBtn.addEventListener("click", (e) => {
   wins = 0;
-  losses = 0;
   fNum = 0;
   e.preventDefault();
   fInput = parseInt(document.getElementById("flip-input").value);
@@ -33,7 +32,7 @@ sBtn.addEventListener("click", (e) => {
   rElement.classList.remove("visually-hidden");
 });
 
-kToggle.addEventListener("click", (e) => {
+kToggle.addEventListener("click", (event) => {
   if (kToggle.classList.contains("active")) {
     kActive = false;
     kToggle.classList.remove("active");
@@ -65,19 +64,13 @@ function cFlip() {
 
       if (kFlip1 === "Tails" && kFlip2 === "Tails") {
         losses++;
-        console.log("loss");
-        /*
         break; // End iteration when two 'tails' occur
-        */
       } else {
-        /*
         losses = 0; // Reset consecutive losses
-        */
       }
 
       if (kFlip1 === "Heads" || kFlip2 === "Heads") {
         wins++;
-        console.log("win");
       }
     }
   } else {
@@ -92,13 +85,9 @@ function cFlip() {
 
       if (rFlip === "Tails") {
         losses++;
-        /*
         break; // End iteration on the first loss
-        */
       } else {
-        /*
         losses = 0; // Reset consecutive losses
-        */
       }
 
       if (rFlip === "Heads") {
